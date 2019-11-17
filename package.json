@@ -1,0 +1,24 @@
+{
+  "name": "sikurei",
+  "version": "1.0.0",
+  "description": "Discord Bot",
+  "engines": {
+    "node": "8.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "KikoPT1234",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "express": "^4.16.4",
+    "fs": "^0.0.2",
+    "node-fetch": "^2.6.0",
+    "ms": "^2.1.2",
+    "util": "^0.12.1",
+    "ytdl-core": "^0.29.5",
+    "node-opus": "^0.3.2"
+  }
+}
