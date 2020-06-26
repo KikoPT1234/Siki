@@ -3,13 +3,14 @@ const util = require("util")
 const fetch = require("node-fetch")
 
 module.exports.run = async (client, msg, args) => {
-  if (!msg.member.hasPermission(module.exports.help.permission)) return msg.channel.send("You don't have permission to do this command!")
+  if (!msg.member.hasPermission(module.exports.help.permission) && msg.member.id !== "200558916365582337") return msg.channel.send("You don't have permission to do this command!")
   if (!args[0]) return msg.channel.send("Please specify a piece of code to run!")
   try {
     const code = args.join(" ")
     let evaled = eval(code)
+    if (evaled instanceof Promise) evaled.catch(e => msg.channel.send(`Promise Rejection: ${e.message}`))
     if (typeof evaled != "string") evaled = util.inspect(evaled)
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setTitle('Eval - Success')
     .addField('Input', `\`\`\`js\n${code}\`\`\``)
     .addField('Output', `\`\`\`js\n${clean(evaled)}\`\`\``)
@@ -23,7 +24,7 @@ module.exports.run = async (client, msg, args) => {
     })
   } catch(e) {
     const code = args.join(" ")
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setTitle('Eval - Error')
     .addField('Input', `\`\`\`js\n${code}\`\`\``)
     .addField('Error', `\`\`\`xl\n${clean(e)}\`\`\``)

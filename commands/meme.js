@@ -6,7 +6,7 @@ module.exports.run = async (client, msg, args) => {
   let le = await l.json();
   le = await JSON.stringify(le)
   le = await JSON.parse(le)
-  const embed = await new Discord.RichEmbed()
+  const embed = await new Discord.MessageEmbed()
   .setColor("RANDOM")
   .setTitle(le.title)
   .setURL(le.postLink)

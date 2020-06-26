@@ -1,8 +1,6 @@
 const Discord = require('discord.js')
 const fetch = require("node-fetch")
 const ms = require("ms")
-const ytdl = require("ytdl-core")
-const opus = require("node-opus")
 
 module.exports.run = async (client, msg, args) => {
   if (!args[0]) return msg.channel.send("No username provided")

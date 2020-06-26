@@ -28,7 +28,7 @@ module.exports.run = async (client, msg, args) => {
     }]
   }
   const embed = await createEmbed(msg, options)
-  const controlChannel = msg.guild.channels.find(c => c.name === 'control-room')
+  const controlChannel = msg.guild.channels.cache.find(c => c.name === 'control-room')
   member.kick(reason).then(() => {
     if (!controlChannel) msg.channel.send(':x: Failed to get control-room.')
     else controlChannel.send(embed).catch(e => {

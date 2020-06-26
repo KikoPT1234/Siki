@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 
 // Create Embed
 const createEmbed = (msg, obj) => {
-  const embed = new Discord.RichEmbed()
+  const embed = new Discord.MessageEmbed()
   .setAuthor(msg.guild.name, msg.guild.iconURL)
   .setFooter(msg.client.user.tag, msg.client.user.displayAvatarURL)
   .setTimestamp()
@@ -30,12 +30,12 @@ const createEmbed = (msg, obj) => {
 
 // Get user and member
 const getUserMember = async (client, msg, args) => {
-  const user = msg.mentions.users.first() || await client.fetchUser(args[0]).catch(e => {
+  const user = msg.mentions.users.first() || await client.users.fetch(args[0]).catch(e => {
     console.log(e)
     msg.channel.send(`:x: Failed to get user: **${e}**`)
   })
   if (user.isRejected) return;
-  const member = msg.mentions.members.first() || await msg.guild.fetchMember(user.id).catch(e => {
+  const member = msg.mentions.members.first() || await msg.guild.members.fetch(user.id).catch(e => {
     console.log(e)
     msg.channel.send(`:x: Failed to get member: **${e}**`)
   })

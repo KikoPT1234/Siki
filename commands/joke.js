@@ -6,16 +6,16 @@ module.exports.run = async (client, msg, args) => {
   if (r == 49 || args[0] === "honest") {
     const r2 = Math.floor(Math.random() * 2)
     if (r2 == 1) {
-      const embed = new Discord.RichEmbed()
+      const embed = new Discord.MessageEmbed()
       .setColor("RANDOM")
-      .setTitle(client.users.get("318922957760102409").username)
-      .setImage(client.users.get("318922957760102409").displayAvatarURL)
+      .setTitle(client.users.cache.get("318922957760102409").username)
+      .setImage(client.users.cache.get("318922957760102409").displayAvatarURL)
       return msg.channel.send(embed)
     } else {
-      const embed = new Discord.RichEmbed()
+      const embed = new Discord.MessageEmbed()
       .setColor("RANDOM")
-      .setTitle(client.users.get("200558916365582337").username)
-      .setImage(client.users.get("200558916365582337").displayAvatarURL)
+      .setTitle(client.users.cache.get("200558916365582337").username)
+      .setImage(client.users.cache.get("200558916365582337").displayAvatarURL)
       return msg.channel.send(embed)
     }
   } else {
@@ -23,7 +23,7 @@ module.exports.run = async (client, msg, args) => {
     let le = await l.json();
     le = await JSON.stringify(le)
     le = await JSON.parse(le)
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
     .addField(le.setup, le.punchline)
     return msg.channel.send(embed)
