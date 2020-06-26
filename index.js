@@ -154,10 +154,9 @@ client.on("message", async msg => {
 client.on("guildMemberUpdate", (oldM, newM) => {
   if (
     !(newM.nickname
-      ? newM.nickname.match(/[a-zA-Z1-9`~!@#$%^&*()_+{}|":?><,./;'\[\]=-\\'"]/)
-      : false ||
-        newM.user.username.match(
-          /[a-zA-Z1-9`~!@#$%^&*()_+{}|":?><,./;'\[\]=-\\'"]/
+      ? newM.nickname.match(/[a-zA-Z0-9`~!@#$%^&*()_+{}|":?><,./;'\[\]=-\\'"]/)
+      : newM.user.username.match(
+          /[a-zA-Z0-9`~!@#$%^&*()_+{}|":?><,./;'\[\]=-\\'"]/
         ))
   )
     newM.setNickname("WRITABLE NAME PLS");
