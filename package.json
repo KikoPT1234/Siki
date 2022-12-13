@@ -16,7 +16,7 @@
     "chart.js": "^2.9.3",
     "discord.js": "^12.2.0",
     "discord.js-minesweeper": "^1.0.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "html2canvas": "^1.0.0-rc.5",
     "jsdom": "^16.2.2",
     "ms": "^2.1.2",
